@@ -3,7 +3,9 @@ import {TransactionContext} from './transContext';
 
 function Child() {
 
-    let transactions = useContext(TransactionContext)
+    let {transactions} = useContext(TransactionContext);
+    console.log(transactions);
+
     return (
         <div className="container">
             <h1 className="text-center">Expense Tracker</h1>
@@ -20,7 +22,7 @@ function Child() {
             <ul className="transaction-list">
                 {transactions.map((transObj, ind) => {
                     return (
-                        <li>
+                        <li key={ind}>
                             <span>{transObj.desc}</span>
                             <span>{transObj.amount}</span>
                         </li>
